@@ -16,6 +16,7 @@ import {
   ChevronRight,
   Phone,
 } from "lucide-react";
+import FaqAccordion from "@/components/FaqAccordion";
 
 const features = [
   {
@@ -89,32 +90,6 @@ const services = [
   },
 ];
 
-const faqs = [
-  {
-    q: "How long does it take to complete a fire alarm design?",
-    a: "Most projects with 350 devices or less are completed within 5 business days. Expedited services are also available upon request.",
-  },
-  {
-    q: "Are you licensed to stamp fire alarm plans?",
-    a: "Yes. Our designs are stamped by Texas-licensed professionals and reviewed by a NICET IV certified engineer.",
-  },
-  {
-    q: "Do you serve areas outside of Texas?",
-    a: "Absolutely. While we are licensed to stamp plans in Texas, we provide design services nationwide and follow each state's local codes.",
-  },
-  {
-    q: "How much does a typical fire alarm design cost?",
-    a: "Standard plans start at $750, with add-ons like $7 per device and $50 for cut sheets. We also offer a $500 option for small projects.",
-  },
-  {
-    q: "Do you charge hourly rates?",
-    a: "No. We believe in transparent, flat-rate pricing so you can control costs and avoid unexpected fees.",
-  },
-  {
-    q: "What file formats do you deliver?",
-    a: "We provide electronic plans in PDF format. CAD files are available upon request, and UPS shipping is available for printed copies.",
-  },
-];
 
 const steps = [
   {
@@ -427,14 +402,7 @@ export default function Home() {
             <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">FAQ</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-charcoal)] mt-3">Quick Answers to Common Questions</h2>
           </div>
-          <div className="space-y-6">
-            {faqs.map((f, i) => (
-              <div key={i} className="border border-gray-200 rounded-xl p-6 hover:border-[var(--color-burnt-orange)] transition-colors">
-                <h3 className="text-[var(--color-charcoal)] font-semibold mb-2">{f.q}</h3>
-                <p className="text-[var(--color-gray-mid)] text-sm leading-relaxed">{f.a}</p>
-              </div>
-            ))}
-          </div>
+          <FaqAccordion />
         </div>
       </section>
 
