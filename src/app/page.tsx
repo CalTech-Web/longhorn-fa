@@ -340,6 +340,80 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pricing Preview */}
+      <section className="py-20 lg:py-28 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">Pricing</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-charcoal)] mt-3 mb-4">Flat-Rate Plans. No Surprises.</h2>
+            <p className="text-[var(--color-gray-mid)] text-lg">Transparent pricing so you can plan your project with confidence.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white rounded-2xl p-8 border border-gray-200 flex flex-col">
+              <h3 className="text-lg font-bold text-[var(--color-charcoal)] mb-2">Small Project</h3>
+              <p className="text-sm text-[var(--color-gray-mid)] mb-6">For smaller commercial spaces with limited device counts.</p>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-[var(--color-charcoal)]">$500</span>
+                <span className="text-sm text-[var(--color-text-light)] ml-1">/ project</span>
+              </div>
+              <ul className="space-y-2 mb-8 flex-1">
+                {["Up to 50 devices", "Permit-ready PDF plans", "NICET IV certified review", "5 business day turnaround"].map((f) => (
+                  <li key={f} className="flex items-center gap-2 text-sm text-[var(--color-gray-mid)]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-burnt-orange)] shrink-0" />{f}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/pricing" className="block text-center py-3 rounded-lg font-semibold text-sm border-2 border-[var(--color-charcoal)] text-[var(--color-charcoal)] hover:bg-[var(--color-charcoal)] hover:text-white transition-colors">
+                View Details
+              </Link>
+            </div>
+            <div className="bg-[var(--color-charcoal)] rounded-2xl p-8 border-2 border-[var(--color-burnt-orange)] flex flex-col relative md:scale-105 shadow-lg">
+              <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--color-burnt-orange)] text-white text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full whitespace-nowrap">
+                Most Popular
+              </span>
+              <h3 className="text-lg font-bold text-white mb-2">Standard Plan</h3>
+              <p className="text-sm text-gray-300 mb-6">Our most popular option for mid-size commercial projects.</p>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-[var(--color-burnt-orange)]">$750</span>
+                <span className="text-sm text-gray-400 ml-1">/ project</span>
+              </div>
+              <ul className="space-y-2 mb-8 flex-1">
+                {["Up to 350 devices", "Full fire alarm layout", "Device placement & risers", "Wiring paths & battery calc", "NICET IV certified & stamped", "Permitting assistance"].map((f) => (
+                  <li key={f} className="flex items-center gap-2 text-sm text-gray-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-burnt-orange)] shrink-0" />{f}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/contact" className="block text-center py-3 rounded-lg font-semibold text-sm bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white transition-colors">
+                Get Started
+              </Link>
+            </div>
+            <div className="bg-white rounded-2xl p-8 border border-gray-200 flex flex-col">
+              <h3 className="text-lg font-bold text-[var(--color-charcoal)] mb-2">Large / Custom</h3>
+              <p className="text-sm text-[var(--color-gray-mid)] mb-6">For complex projects with 350+ devices or special requirements.</p>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-[var(--color-charcoal)]">Custom</span>
+              </div>
+              <ul className="space-y-2 mb-8 flex-1">
+                {["350+ devices", "Custom scope & timeline", "Full engineering support", "Expedited options available"].map((f) => (
+                  <li key={f} className="flex items-center gap-2 text-sm text-[var(--color-gray-mid)]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-burnt-orange)] shrink-0" />{f}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/contact" className="block text-center py-3 rounded-lg font-semibold text-sm border-2 border-[var(--color-charcoal)] text-[var(--color-charcoal)] hover:bg-[var(--color-charcoal)] hover:text-white transition-colors">
+                Request a Quote
+              </Link>
+            </div>
+          </div>
+          <div className="text-center">
+            <Link href="/pricing" className="inline-flex items-center text-[var(--color-burnt-orange)] font-semibold hover:underline">
+              View Full Pricing Details <ChevronRight className="w-4 h-4 ml-1" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="py-20 lg:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
