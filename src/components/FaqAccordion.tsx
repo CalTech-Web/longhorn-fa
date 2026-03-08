@@ -1,76 +1,60 @@
-"use client";
-
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
-
 const faqs = [
   {
     q: "How long does it take to complete a fire alarm design?",
-    a: "Most projects with 350 devices or less are completed within 5 business days. Expedited services are also available upon request.",
+    a: "Projects up to 350 devices typically come back in five business days. If your schedule is tighter than that, we have expedited options.",
   },
   {
     q: "Are you licensed to stamp fire alarm plans?",
-    a: "Yes. Our designs are stamped by Texas-licensed professionals and reviewed by a NICET IV certified engineer.",
+    a: "Every set of drawings is stamped by a Texas-licensed professional and reviewed by a NICET IV certified engineer before it leaves our office.",
   },
   {
     q: "Do you serve areas outside of Texas?",
-    a: "Absolutely. While we are licensed to stamp plans in Texas, we provide design services nationwide and follow each state's local codes.",
+    a: "We provide design services nationwide. The stamp is Texas, but we work to each state's local codes for projects across the country.",
   },
   {
     q: "How much does a typical fire alarm design cost?",
-    a: "Standard plans start at $750, with add-ons like $7 per device and $50 for cut sheets. We also offer a $500 option for small projects.",
+    a: "Small projects start at $500. Standard plans start at $750, with add-ons at $7 per device and $50 for cut sheets. Every quote is flat-rate before work begins.",
   },
   {
     q: "Do you charge hourly rates?",
-    a: "No. We believe in transparent, flat-rate pricing so you can control costs and avoid unexpected fees.",
+    a: "No hourly billing, ever. You get a flat quote before we start, and that is the number on your invoice.",
   },
   {
     q: "What file formats do you deliver?",
-    a: "We provide electronic plans in PDF format. CAD files are available upon request, and UPS shipping is available for printed copies.",
+    a: "Standard delivery is PDF. CAD files are available on request. Printed copies can ship via UPS if you need them.",
   },
 ];
 
 export default function FaqAccordion() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   return (
     <div className="space-y-3">
-      {faqs.map((f, i) => {
-        const isOpen = openIndex === i;
-        return (
-          <div
-            key={i}
-            className={`border rounded-xl overflow-hidden transition-colors ${
-              isOpen
-                ? "border-[var(--color-burnt-orange)]"
-                : "border-gray-200 hover:border-gray-300"
-            }`}
-          >
-            <button
-              onClick={() => setOpenIndex(isOpen ? null : i)}
-              className="w-full flex items-center justify-between px-6 py-5 text-left gap-4 group"
+      {faqs.map((f, i) => (
+        <details
+          key={i}
+          className="group border border-gray-200 rounded-xl overflow-hidden open:border-[var(--color-burnt-orange)]"
+        >
+          <summary className="flex items-center justify-between px-6 py-5 cursor-pointer list-none gap-4">
+            <span className="font-semibold text-sm sm:text-base text-[var(--color-charcoal)] group-open:text-[var(--color-burnt-orange)]">
+              {f.q}
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-5 h-5 shrink-0 text-[var(--color-burnt-orange)] transition-transform duration-300 group-open:rotate-180"
             >
-              <span className={`font-semibold text-sm sm:text-base transition-colors ${isOpen ? "text-[var(--color-burnt-orange)]" : "text-[var(--color-charcoal)] group-hover:text-[var(--color-burnt-orange)]"}`}>
-                {f.q}
-              </span>
-              <ChevronDown
-                className={`w-5 h-5 shrink-0 text-[var(--color-burnt-orange)] transition-transform duration-300 ${
-                  isOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-            <div
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-              }`}
-            >
-              <p className="px-6 pb-5 text-[var(--color-gray-mid)] text-sm leading-relaxed">
-                {f.a}
-              </p>
-            </div>
-          </div>
-        );
-      })}
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </summary>
+          <p className="px-6 pb-5 text-[var(--color-gray-mid)] text-sm leading-relaxed">
+            {f.a}
+          </p>
+        </details>
+      ))}
     </div>
   );
 }
