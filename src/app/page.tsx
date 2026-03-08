@@ -116,6 +116,29 @@ const faqs = [
   },
 ];
 
+const steps = [
+  {
+    title: "Initial Contact",
+    desc: "Reach out with your project details and scope. We respond quickly and ask the right questions.",
+  },
+  {
+    title: "Estimating",
+    desc: "Receive a flat-rate quote based on project size. No hourly rates, no surprises.",
+  },
+  {
+    title: "Design",
+    desc: "Full fire alarm layout with device placement, risers, wiring paths, and battery calculations.",
+  },
+  {
+    title: "Review & Stamp",
+    desc: "Plans reviewed and sealed by our NICET IV certified, Texas-licensed professionals.",
+  },
+  {
+    title: "Delivery",
+    desc: "Permit-ready plans delivered in PDF format within 5 business days.",
+  },
+];
+
 const stats = [
   { value: "25+", label: "Years Experience", sub: "Delivering precise, code-compliant designs for every type of facility" },
   { value: "2,000+", label: "Projects Completed", sub: "From office towers to hospitals, our plans get permits approved" },
@@ -242,6 +265,37 @@ export default function Home() {
                 </span>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">Our Process</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-charcoal)] mt-3 mb-4">How It Works</h2>
+            <p className="text-[var(--color-gray-mid)] text-lg">From your first call to permit-ready plans in five straightforward steps.</p>
+          </div>
+          <div className="relative">
+            {/* Connector line desktop */}
+            <div className="hidden lg:block absolute top-8 bg-gray-200 h-0.5 z-0" style={{ left: "10%", right: "10%" }} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-4 relative z-10">
+              {steps.map((step, i) => (
+                <div key={i} className="flex flex-col items-center text-center">
+                  <div className="w-16 h-16 rounded-full bg-[var(--color-burnt-orange)] flex items-center justify-center text-white text-xl font-bold mb-5 shadow-md ring-4 ring-white">
+                    {i + 1}
+                  </div>
+                  <h3 className="text-[var(--color-charcoal)] font-semibold mb-2">{step.title}</h3>
+                  <p className="text-[var(--color-gray-mid)] text-sm leading-relaxed">{step.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="text-center mt-14">
+            <Link href="/contact" className="inline-flex items-center justify-center bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white px-8 py-4 rounded-lg text-base font-semibold transition-colors">
+              Start Your Project <ChevronRight className="w-5 h-5 ml-2" />
+            </Link>
           </div>
         </div>
       </section>
