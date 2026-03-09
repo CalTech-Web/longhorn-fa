@@ -1,10 +1,14 @@
-import ServicePageLayout from "@/components/ServicePageLayout";
 import { Settings } from "lucide-react";
+import ServicePageLayout from "@/components/ServicePageLayout";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Engineering & Consulting | Longhorn Fire Alarm Design",
-  description: "Expert fire alarm engineering guidance, sealed drawings, cost breakdowns, and system advice from NICET IV certified professionals.",
+  title: "Engineering & Consulting",
+  description:
+    "Expert fire alarm engineering and consulting from NICET IV certified professionals. Sealed drawings, cost breakdowns, and system guidance.",
+  alternates: {
+    canonical: "https://longhornfirealarmdesign.com/services/engineering-consulting",
+  },
 };
 
 export default function EngineeringConsultingPage() {
@@ -13,22 +17,18 @@ export default function EngineeringConsultingPage() {
       icon={Settings}
       title="Engineering & Consulting"
       subtitle="Expert Guidance"
-      description="Receive expert guidance, sealed drawings, cost breakdowns, and system advice from NICET IV certified professionals. Whether you need a second opinion on a complex system or full engineering support, we are here to help."
+      description="NICET IV certified professionals providing sealed drawings, system recommendations, cost breakdowns, and technical guidance for fire alarm projects of any complexity."
       features={[
-        "System analysis and recommendations",
-        "Sealed engineering drawings",
-        "Cost analysis and budgeting support",
+        "Sealed engineering drawings by Texas-licensed professionals",
+        "System selection and product recommendations",
+        "Cost breakdowns and budget estimates",
         "Code interpretation and compliance guidance",
-        "Retrofit feasibility assessments",
-        "Coordination with other engineering disciplines",
-        "Expert testimony and documentation support",
+        "Value engineering for cost-effective designs",
+        "Technical support during installation",
       ]}
-      details={[
-        "NICET IV certification ensures the highest level of technical expertise",
-        "Independent analysis helps identify cost-saving opportunities",
-        "Expert code interpretation prevents compliance issues",
-        "Feasibility studies reduce risk before committing to a project",
-        "Professional documentation supports AHJ reviews and approvals",
+      faqs={[
+        { q: "Can you review plans from another designer?", a: "Yes. We provide third-party review and can identify code issues, design gaps, or cost savings in existing plans." },
+        { q: "Do you provide on-site consulting?", a: "Most consulting is handled remotely, but on-site visits can be arranged for Texas-based projects." },
       ]}
     />
   );

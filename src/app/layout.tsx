@@ -1,29 +1,31 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Longhorn Fire Alarm Design | Stamped Plans. Flat Fees. No Delays.",
+  title: {
+    default: "Longhorn Fire Alarm Design | NICET IV Certified Fire Alarm Plans",
+    template: "%s | Longhorn Fire Alarm Design",
+  },
   description:
-    "Texas-based fire alarm system design firm with 25+ years of experience. NICET IV certified, sealed plans delivered in 5 business days. Flat-rate pricing.",
-  keywords: "fire alarm design, fire alarm plans, NICET IV, Texas fire alarm, permit-ready plans, fire alarm system",
+    "Sealed, inspection-ready fire alarm plans in five business days. NICET IV certified, Texas licensed. Flat-rate pricing, no hourly billing. Serving contractors nationwide since 2000.",
+  metadataBase: new URL("https://longhornfirealarmdesign.com"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Longhorn Fire Alarm Design",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
+      <body>
         <Header />
         <main>{children}</main>
         <Footer />

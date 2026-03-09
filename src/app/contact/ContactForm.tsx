@@ -13,9 +13,41 @@ const contactInfo = [
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const data = {
+      site: "longhornfirealarmdesign.com",
+      name: `${(form.elements.namedItem("firstName") as HTMLInputElement).value} ${(form.elements.namedItem("lastName") as HTMLInputElement).value}`,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      message: [
+        (form.elements.namedItem("phone") as HTMLInputElement).value && `Phone: ${(form.elements.namedItem("phone") as HTMLInputElement).value}`,
+        (form.elements.namedItem("company") as HTMLInputElement).value && `Company: ${(form.elements.namedItem("company") as HTMLInputElement).value}`,
+        (form.elements.namedItem("projectType") as HTMLSelectElement).value && `Project Type: ${(form.elements.namedItem("projectType") as HTMLSelectElement).value}`,
+        (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+      ].filter(Boolean).join("\n"),
+      source: "contact-page" as const,
+    };
+
+    try {
+      const res = await fetch("https://forms.caltechweb.com/api/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error("Submission failed");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again or call us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -84,8 +116,11 @@ export default function ContactForm() {
                     <label htmlFor="message" className="block text-sm font-medium text-[var(--color-charcoal)] mb-2">Message *</label>
                     <textarea id="message" required rows={5} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition resize-none" />
                   </div>
-                  <button type="submit" className="w-full sm:w-auto bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white px-10 py-4 rounded-lg font-semibold transition-colors">
-                    Send Message
+                  {error && (
+                    <p className="text-red-600 text-sm">{error}</p>
+                  )}
+                  <button type="submit" disabled={submitting} className="w-full sm:w-auto bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white px-10 py-4 rounded-lg font-semibold transition-colors disabled:opacity-60">
+                    {submitting ? "Sending..." : "Send Message"}
                   </button>
                 </form>
               )}

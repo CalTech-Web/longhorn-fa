@@ -79,7 +79,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-500">&copy; 2026 Longhorn Fire Alarm Design. All rights reserved.</p>
+          <p className="text-sm text-gray-500">&copy; 2026 Longhorn Fire Alarm Design. All rights reserved. Powered by <a href="https://caltechweb.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">CalTechWeb</a>.</p>
           <div className="flex gap-6">
             <Link href="/privacy-policy" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</Link>
             <Link href="/terms-of-service" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">Terms of Service</Link>

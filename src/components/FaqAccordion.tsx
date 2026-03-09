@@ -1,4 +1,4 @@
-const faqs = [
+const defaultFaqs = [
   {
     q: "How long does it take to complete a fire alarm design?",
     a: "Projects up to 350 devices typically come back in five business days. If your schedule is tighter than that, we have expedited options.",
@@ -25,7 +25,8 @@ const faqs = [
   },
 ];
 
-export default function FaqAccordion() {
+export default function FaqAccordion({ items }: { items?: { q: string; a: string }[] } = {}) {
+  const faqs = items ?? defaultFaqs;
   return (
     <div className="space-y-3">
       {faqs.map((f, i) => (

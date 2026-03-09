@@ -1,10 +1,14 @@
-import ServicePageLayout from "@/components/ServicePageLayout";
 import { Handshake } from "lucide-react";
+import ServicePageLayout from "@/components/ServicePageLayout";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sales Support | Longhorn Fire Alarm Design",
-  description: "Free design support for fire alarm contractors. Build stronger bids and win more jobs with professional plans and estimates.",
+  title: "Sales Support",
+  description:
+    "Free fire alarm design sales support for contractors. Build stronger bids and win more jobs with accurate preliminary layouts from Longhorn.",
+  alternates: {
+    canonical: "https://longhornfirealarmdesign.com/services/sales-support",
+  },
 };
 
 export default function SalesSupportPage() {
@@ -13,21 +17,18 @@ export default function SalesSupportPage() {
       icon={Handshake}
       title="Sales Support"
       subtitle="Win More Bids"
-      description="Our design team supports your sales efforts by helping you build stronger bids and win more jobs at no added cost to you. We provide preliminary layouts, device counts, and cost estimates that give your proposals a professional edge."
+      description="Our design team backs your sales efforts. We provide preliminary layouts, device counts, and material estimates so you can bid with confidence and close more projects."
       features={[
-        "Preliminary fire alarm layouts for bid proposals",
-        "Accurate device counts for estimating",
-        "Cost breakdowns to support competitive pricing",
-        "Professional plan presentations for client meetings",
-        "Submittal preparation assistance",
-        "No charge for sales support services",
+        "Preliminary layouts for bid proposals",
+        "Accurate device counts and material estimates",
+        "No cost for qualifying sales support requests",
+        "Fast turnaround to meet bid deadlines",
+        "Helps differentiate your proposal from competitors",
+        "Seamless transition from bid to final design",
       ]}
-      details={[
-        "Professional plans differentiate your bids from competitors",
-        "Accurate device counts prevent costly underestimates",
-        "Free support means no added overhead on your proposals",
-        "Faster estimates let you respond to RFPs quickly",
-        "Stronger bids lead to higher win rates and more revenue",
+      faqs={[
+        { q: "Is there a cost for sales support?", a: "Sales support for qualifying projects is provided at no cost. If the bid wins, we move straight into the full design." },
+        { q: "How fast can you turn around a bid layout?", a: "Most preliminary layouts are ready within 2 to 3 business days, depending on project size." },
       ]}
     />
   );

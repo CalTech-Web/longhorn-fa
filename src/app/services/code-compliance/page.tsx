@@ -1,10 +1,14 @@
-import ServicePageLayout from "@/components/ServicePageLayout";
 import { BookCheck } from "lucide-react";
+import ServicePageLayout from "@/components/ServicePageLayout";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Code Compliance | Longhorn Fire Alarm Design",
-  description: "Fire alarm designs that follow IBC, NFPA 72, NEC, and all AHJ amendments. Full compliance, fewer revisions.",
+  title: "Code Compliance",
+  description:
+    "Fire alarm plans built to IBC, NFPA 72, NEC, and all AHJ amendments. Full code compliance to reduce revisions and pass inspections.",
+  alternates: {
+    canonical: "https://longhornfirealarmdesign.com/services/code-compliance",
+  },
 };
 
 export default function CodeCompliancePage() {
@@ -12,22 +16,19 @@ export default function CodeCompliancePage() {
     <ServicePageLayout
       icon={BookCheck}
       title="Code Compliance"
-      subtitle="Full Compliance"
-      description="Every plan follows IBC, NFPA 72, NEC, and all AHJ amendments to ensure full compliance and reduce costly revisions. We stay current on code updates so you do not have to."
+      subtitle="Built to Code"
+      description="Every plan follows IBC, NFPA 72, NEC, and all applicable AHJ amendments. Full compliance is not optional. It is the baseline for every drawing we produce."
       features={[
-        "Full NFPA 72 (National Fire Alarm Code) compliance",
-        "IBC (International Building Code) adherence",
-        "NEC (National Electrical Code) wiring compliance",
-        "Local AHJ amendments incorporated",
-        "Texas state fire marshal requirements met",
-        "Code change tracking and plan updates",
+        "Plans designed to NFPA 72, IBC, and NEC standards",
+        "Local AHJ amendment research and compliance",
+        "Code references included directly on drawings",
+        "Reduced revision cycles and faster approvals",
+        "Compliance documentation for project files",
+        "Ongoing code update awareness across jurisdictions",
       ]}
-      details={[
-        "Code-compliant designs pass inspection on the first review",
-        "Fewer revisions mean lower costs and faster project timelines",
-        "Staying current on code changes prevents costly retrofits",
-        "Multi-code compliance ensures full regulatory coverage",
-        "Proper documentation supports smooth AHJ interactions",
+      faqs={[
+        { q: "Do you research local AHJ amendments?", a: "Yes. We verify the specific requirements for your jurisdiction before starting the design." },
+        { q: "What happens if codes change mid-project?", a: "We track code updates and will flag any changes that affect your project during the design phase." },
       ]}
     />
   );
