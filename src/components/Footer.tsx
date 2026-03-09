@@ -25,7 +25,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <Image src="/logo.webp" alt="Longhorn Fire Alarm Design" width={180} height={40} className="h-10 w-auto mb-4" />
+            <div className="flex items-center gap-3 mb-4">
+              <Image src="/logo.webp" alt="Longhorn Fire Alarm Design" width={40} height={40} className="h-10 w-10 rounded-full" />
+              <span className="text-white font-bold">Longhorn Fire Alarm</span>
+            </div>
             <p className="text-sm text-gray-400 leading-relaxed">
               We specialize in precise, code-compliant fire alarm plans with fast turnaround times and expert support from start to finish.
             </p>

@@ -23,7 +23,8 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/logo.webp" alt="Longhorn Fire Alarm Design" width={220} height={50} className="h-12 w-auto" priority sizes="64px" />
+            <Image src="/logo.webp" alt="Longhorn Fire Alarm Design" width={48} height={48} className="h-12 w-12 rounded-full" priority />
+            <span className="text-white font-bold text-lg hidden sm:inline">Longhorn Fire Alarm</span>
           </Link>
 
           {/* Desktop Nav */}
