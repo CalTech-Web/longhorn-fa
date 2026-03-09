@@ -3,15 +3,18 @@ import { CheckCircle, ChevronRight, Target, Eye, Award, Users, Clock, Shield } f
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | Longhorn Fire Alarm Design",
-  description: "Learn about Longhorn Fire Alarm Design, a specialized fire alarm system design firm with 25+ years of experience and NICET IV certification.",
+  title: "About Longhorn Fire Alarm Design | NICET IV Certified Since 2000",
+  description: "Longhorn Fire Alarm Design has specialized in fire alarm system design since 2000. NICET IV certified, Texas licensed, with 2,000+ projects completed for contractors, engineers, and architects nationwide.",
+  alternates: {
+    canonical: "https://longhornfirealarmdesign.com/about",
+  },
 };
 
 const values = [
-  { icon: Award, title: "NICET IV Certified", desc: "Our designers hold the highest level of NICET certification in fire alarm systems." },
-  { icon: Shield, title: "Texas Licensed", desc: "All plans are stamped by Texas-licensed professionals for full regulatory compliance." },
-  { icon: Clock, title: "5-Day Turnaround", desc: "Most projects are completed within 5 business days, with expedited options available." },
-  { icon: Users, title: "Full-Service Partner", desc: "We support every phase from estimating and sales assistance to submittals and permitting." },
+  { icon: Award, title: "NICET IV Certified", desc: "Level IV is the top of the NICET scale. Most fire alarm shops credential at Level II or III. That gap shows when a complex plan hits review." },
+  { icon: Shield, title: "Texas Licensed", desc: "All plans are stamped by Texas-licensed professionals. That seal is what building departments require at permit submission." },
+  { icon: Clock, title: "5-Day Turnaround", desc: "Send us the project files Monday. Stamped PDFs by Friday. Projects up to 350 devices. Expedited service when the schedule won't hold." },
+  { icon: Users, title: "Full-Service Partner", desc: "Bid prep, permit docs, AHJ response coordination. We stay with the project until the permit comes through, not just until the drawing is done." },
 ];
 
 export default function AboutPage() {
@@ -24,7 +27,7 @@ export default function AboutPage() {
             <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">About Us</span>
             <h1 className="text-4xl sm:text-5xl font-bold text-white mt-3 mb-6">Built on Experience. Driven by Precision.</h1>
             <p className="text-gray-300 text-lg leading-relaxed">
-              Trusted across Texas and beyond for over 25 years. We deliver code-compliant fire alarm designs that keep your projects on track.
+              Fire alarm design only, since 2000. NICET IV certified, Texas licensed, and 2,000+ projects into a very specific specialty.
             </p>
           </div>
         </div>
@@ -37,10 +40,10 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold text-[var(--color-charcoal)] mb-6">Who We Are</h2>
               <p className="text-[var(--color-gray-mid)] leading-relaxed mb-6">
-                Longhorn Fire Alarm Design is a specialized fire alarm system design firm with over two decades of combined experience in life safety engineering. We serve contractors, architects, and engineers with fast, code-compliant designs backed by NICET IV certification and a Texas professional license.
+                Longhorn has been doing one thing since 2000. Designing fire alarm systems. Not MEP packages. Not general engineering. Just fire alarm. That focus means 25 years of repetition on the details that matter, from conductor sizing to AHJ submission requirements.
               </p>
               <p className="text-[var(--color-gray-mid)] leading-relaxed mb-8">
-                From new construction to complex retrofits, our mission is simple: deliver clear, accurate, and permit-ready plans that keep your projects moving forward, on time and within budget. We have completed over 2,000 projects ranging from office towers to hospitals.
+                Over 2,000 projects completed. Office towers, hospital wings, new construction, and full retrofits. The common thread is plans that are sealed, code-compliant, and ready for permit submission without a revision cycle.
               </p>
               <div className="space-y-3">
                 {[
@@ -87,7 +90,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-[var(--color-charcoal)] mb-4">Our Mission</h3>
               <p className="text-[var(--color-gray-mid)] leading-relaxed">
-                To enhance life safety with advanced fire alarm systems, expert engineering, and top-notch services. We strive to save lives with innovative, code-compliant designs, offering cost-effective solutions that meet client needs and streamline projects.
+                Life safety is the job. Every plan we produce is designed to protect the people who occupy buildings they may never think twice about. Our work only holds up if it passes inspection and performs on the day it matters.
               </p>
             </div>
             <div className="bg-white rounded-xl p-10 shadow-sm border border-gray-100">
@@ -96,7 +99,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-[var(--color-charcoal)] mb-4">Our Goal</h3>
               <p className="text-[var(--color-gray-mid)] leading-relaxed">
-                Deliver fast, accurate, and affordable fire alarm design solutions with the highest level of professionalism and project support, from first draft to permit approval.
+                Fast turnaround, accurate plans, flat fees. We measure success by how quickly your permit comes through and how rarely you need to call us about a revision.
               </p>
             </div>
           </div>
@@ -112,7 +115,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((v, i) => (
               <div key={i} className="text-center">
-                <div className="w-14 h-14 bg-[var(--color-burnt-orange)] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-5">
+                <div className="w-14 h-14 bg-[#D84D1A1A] rounded-full flex items-center justify-center mx-auto mb-5">
                   <v.icon className="w-7 h-7 text-[var(--color-burnt-orange)]" />
                 </div>
                 <h3 className="text-lg font-semibold text-[var(--color-charcoal)] mb-2">{v.title}</h3>

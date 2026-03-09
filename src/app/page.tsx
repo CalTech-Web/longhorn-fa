@@ -22,32 +22,32 @@ const features = [
   {
     icon: Shield,
     title: "Over 25 Years of Experience",
-    desc: "All plans are reviewed and sealed by certified professionals, ensuring full compliance with state and local requirements.",
+    desc: "Founded in 2000. More than 2,000 projects completed since then. That kind of repetition builds an instinct for catching problems before the AHJ does.",
   },
   {
     icon: Award,
     title: "NICET IV Certified & TX Licensed",
-    desc: "All plans are reviewed and sealed by certified professionals, ensuring full compliance with state and local requirements.",
+    desc: "NICET Level IV is the top tier in the field. Our Texas professional license is the signature on every set of stamped plans we deliver.",
   },
   {
     icon: Clock,
     title: "Fast, Predictable Turnaround",
-    desc: "We complete most projects within five business days. Need it sooner? We offer expedited services to meet tight deadlines.",
+    desc: "Five business days for most projects up to 350 devices. If you are on a tighter timeline, expedited service is available.",
   },
   {
     icon: DollarSign,
     title: "Straightforward Pricing",
-    desc: "No hidden fees. No hourly guesswork. Flat-rate packages, affordable add-ons, and a best price guarantee.",
+    desc: "No hourly billing. No surprise invoices. Every project starts with a flat quote, backed by our best price guarantee.",
   },
   {
     icon: Briefcase,
     title: "Full-Service Project Support",
-    desc: "From estimating and sales assistance to submittals and permitting, we are your partner through every phase of the project.",
+    desc: "We stay in from estimating through permit approval. Sales support, submittals, and revision responses are all part of the deal.",
   },
   {
     icon: Gift,
     title: "First Plan Free",
-    desc: "We stand by our work. Your first qualifying fire alarm design is at no cost so you can see the value before committing.",
+    desc: "Your first qualifying design is free. Not a trial. A real, sealed, inspection-ready set of plans so you can judge the work before committing.",
   },
 ];
 
@@ -94,7 +94,7 @@ const services = [
 const steps = [
   {
     title: "Initial Contact",
-    desc: "Reach out with your project details and scope. We respond quickly and ask the right questions.",
+    desc: "Send us the project scope and floor plans. We ask what we need to build an accurate quote.",
   },
   {
     title: "Estimating",
@@ -115,14 +115,73 @@ const steps = [
 ];
 
 const stats = [
-  { value: "25+", label: "Years Experience", sub: "Delivering precise, code-compliant designs for every type of facility" },
-  { value: "2,000+", label: "Projects Completed", sub: "From office towers to hospitals, our plans get permits approved" },
-  { value: "5 Days", label: "Standard Turnaround", sub: "Most projects completed in 5 business days or less" },
+  { value: "25+", label: "Years Experience", sub: "Fire alarm only, since 2000. That single focus shows in the details." },
+  { value: "2,000+", label: "Projects Completed", sub: "Office towers, hospital wings, new builds, full retrofits. Most pass on first review." },
+  { value: "5 Days", label: "Standard Turnaround", sub: "Projects up to 350 devices. Expedited service when the schedule runs tight." },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How long does it take to complete a fire alarm design?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Projects up to 350 devices typically come back in five business days. If your schedule is tighter than that, we have expedited options.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Are you licensed to stamp fire alarm plans?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Every set of drawings is stamped by a Texas-licensed professional and reviewed by a NICET IV certified engineer before it leaves our office.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you serve areas outside of Texas?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We provide design services nationwide. The stamp is Texas, but we work to each state's local codes for projects across the country.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How much does a typical fire alarm design cost?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Small projects start at $500. Standard plans start at $750, with add-ons at $7 per device and $50 for cut sheets. Every quote is flat-rate before work begins.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you charge hourly rates?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No hourly billing, ever. You get a flat quote before we start, and that is the number on your invoice.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What file formats do you deliver?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Standard delivery is PDF. CAD files are available on request. Printed copies can ship via UPS if you need them.",
+      },
+    },
+  ],
+};
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Hero */}
       <section className="relative bg-[var(--color-charcoal)] overflow-hidden pb-12 lg:pb-16">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-charcoal)] via-[var(--color-charcoal-light)] to-[var(--color-charcoal)]" />
@@ -136,7 +195,7 @@ export default function Home() {
               Longhorn Fire Alarm Design
             </h1>
             <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl">
-              We deliver sealed, inspection-ready fire alarm plans in just 5 business days. Built for contractors, engineers, and architects who need it done right the first time.
+              Sealed, inspection-ready plans in five business days. Flat-rate pricing, no hourly billing, and your first qualifying design at no cost.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact" className="inline-flex items-center justify-center bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white px-8 py-4 rounded-lg text-base font-semibold transition-colors">
@@ -177,12 +236,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-charcoal)] mb-4">Why Choose Longhorn</h2>
-            <p className="text-[var(--color-gray-mid)] text-lg">Built on experience. Driven by precision. Trusted across Texas and beyond.</p>
+            <p className="text-[var(--color-gray-mid)] text-lg">25 years of fire alarm design. 2,000+ projects completed. A flat-rate model that removes billing surprises.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((f, i) => (
               <div key={i} className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-                <div className="w-12 h-12 bg-[var(--color-burnt-orange)] bg-opacity-10 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-12 h-12 bg-[#D84D1A1A] rounded-lg flex items-center justify-center mb-5">
                   <f.icon className="w-6 h-6 text-[var(--color-burnt-orange)]" />
                 </div>
                 <h3 className="text-lg font-semibold text-[var(--color-charcoal)] mb-3">{f.title}</h3>
@@ -203,13 +262,13 @@ export default function Home() {
                 Built on Experience. Driven by Precision.
               </h2>
               <p className="text-[var(--color-gray-mid)] leading-relaxed mb-8">
-                Longhorn Fire Alarm Design is a specialized fire alarm system design firm with over two decades of combined experience in life safety engineering. We serve contractors, architects, and engineers with fast, code-compliant designs backed by NICET IV certification and a Texas professional license.
+                Longhorn has been designing fire alarm systems since 2000. We work with contractors, architects, and engineers who need plans that pass the first time. NICET IV certified. Texas licensed. That is the credential stack behind every set of drawings we produce.
               </p>
               <p className="text-[var(--color-gray-mid)] leading-relaxed mb-8">
-                From new construction to complex retrofits, our mission is simple: deliver clear, accurate, and permit-ready plans that keep your projects moving forward, on time and within budget.
+                New construction, retrofits, office towers, hospitals. We have seen most of it. The job is always the same. Clear, accurate, permit-ready plans delivered in five business days.
               </p>
               <div className="space-y-3">
-                {["Certified & Trusted Experts", "Qualified & Proven Team", "Built on 25+ Years of Experience"].map((item) => (
+                {["NICET IV certified, not just licensed", "Single specialty since 2000, not a generalist shop", "Texas-stamped plans accepted statewide, design work done nationwide"].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-[var(--color-burnt-orange)] flex-shrink-0" />
                     <span className="text-[var(--color-charcoal)] font-medium">{item}</span>
@@ -224,8 +283,8 @@ export default function Home() {
                   "NICET IV Certified Designers",
                   "Free Sales Support for Contractors",
                   "Built for New Installs & Retrofits",
-                  "Fast Turnaround with No Hourly Rates",
-                  "100% Code-Compliant Drawings",
+                  "5-Day Standard Turnaround, Flat-Rate Pricing",
+                  "Plans Built to NFPA 72, IBC, and NEC",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-[var(--color-burnt-orange)] flex-shrink-0" />
@@ -247,7 +306,7 @@ export default function Home() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">Our Services</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-charcoal)] mt-3 mb-4">Fire Alarm Design Services</h2>
-            <p className="text-[var(--color-gray-mid)] text-lg">Comprehensive design solutions for every phase of your project.</p>
+            <p className="text-[var(--color-gray-mid)] text-lg">From preliminary bid layouts to stamped permit documents, every phase covered.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((s, i) => (
@@ -272,7 +331,7 @@ export default function Home() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">Our Process</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-charcoal)] mt-3 mb-4">How It Works</h2>
-            <p className="text-[var(--color-gray-mid)] text-lg">From your first call to permit-ready plans in five straightforward steps.</p>
+            <p className="text-[var(--color-gray-mid)] text-lg">Send us the project, get a flat-rate quote, and receive stamped plans within five business days.</p>
           </div>
           <div className="relative">
             {/* Connector line desktop */}
@@ -301,8 +360,8 @@ export default function Home() {
       <section className="py-20 lg:py-28 bg-[var(--color-charcoal)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">Built for Speed & Compliance</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3">The Numbers Speak for Themselves</h2>
+            <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">Track Record</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3">Twenty-Five Years. One Specialty.</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {stats.map((s, i) => (
@@ -327,7 +386,7 @@ export default function Home() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">Pricing</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-charcoal)] mt-3 mb-4">Flat-Rate Plans. No Surprises.</h2>
-            <p className="text-[var(--color-gray-mid)] text-lg">Transparent pricing so you can plan your project with confidence.</p>
+            <p className="text-[var(--color-gray-mid)] text-lg">Flat rates starting at $500. No hourly billing, no ambiguous invoices.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div className="bg-white rounded-2xl p-8 border border-gray-200 flex flex-col">
@@ -409,9 +468,9 @@ export default function Home() {
       {/* CTA */}
       <section className="py-20 lg:py-24 bg-[var(--color-burnt-orange)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Ready to Get Started?</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Your First Plan Is on Us</h2>
           <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
-            Get your first qualifying fire alarm design at no cost. See the quality of our work before committing.
+            Submit a project. We design it, stamp it, and send permit-ready PDFs in five business days. No cost for qualifying clients. If the work holds up, the next conversation is easy.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/pricing" className="inline-flex items-center justify-center bg-white text-[var(--color-burnt-orange)] px-8 py-4 rounded-lg text-base font-semibold hover:bg-gray-100 transition-colors">
