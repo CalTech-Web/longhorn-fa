@@ -397,6 +397,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Certifications Strip */}
+      <section className="relative py-12 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-sm text-[var(--color-text-light)] uppercase tracking-wider font-semibold mb-8">Trusted Certifications & Standards</p>
+          <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-16">
+            {[
+              { src: "/Nicet-Logo-LHF.png", alt: "NICET Certified" },
+              { src: "/LongHotn-NFPA-Logo.webp", alt: "NFPA Member" },
+              { src: "/International-Fire-Code-Logo.webp", alt: "International Fire Code" },
+              { src: "/IBC-Logo-LHF.png", alt: "International Building Code" },
+            ].map((cert) => (
+              <div key={cert.alt} className="grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+                <Image src={cert.src} alt={cert.alt} width={120} height={60} className="h-14 w-auto object-contain" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Preview */}
       <section className="relative py-20 lg:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[var(--color-burnt-orange)]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />

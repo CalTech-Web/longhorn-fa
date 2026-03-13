@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Flame,
   FileCheck,
@@ -26,38 +27,51 @@ const services = [
     icon: Flame,
     title: "Fire Alarm System Design",
     desc: "Full fire alarm layouts for new and retrofit projects, including device placement, risers, wiring paths, and battery calculations.",
+    highlights: ["Device placement & risers", "Wiring paths & conduit routing", "Battery calculations", "Sealed permit-ready PDFs"],
     href: "/services/fire-alarm-system-design",
   },
   {
     icon: FileCheck,
     title: "Permitting Assistance",
     desc: "Permit-ready plans that follow all local codes and AHJ rules to help you avoid delays and pass inspections faster.",
+    highlights: ["AHJ submission support", "Code-compliant documentation", "Revision coordination", "Inspection-ready plans"],
     href: "/services/permitting-assistance",
   },
   {
     icon: Handshake,
     title: "Sales Support",
     desc: "Our design team supports your sales efforts by helping you build stronger bids and win more jobs at no added cost.",
+    highlights: ["Bid-ready layouts", "Scope estimation", "Proposal support", "No added cost"],
     href: "/services/sales-support",
   },
   {
     icon: Settings,
     title: "Engineering & Consulting",
     desc: "Expert guidance, sealed drawings, cost breakdowns, and system advice from NICET IV certified professionals.",
+    highlights: ["Sealed engineering drawings", "Cost breakdowns", "System recommendations", "NICET IV review"],
     href: "/services/engineering-consulting",
   },
   {
     icon: BookCheck,
     title: "Code Compliance",
     desc: "Every plan follows IBC, NFPA 72, NEC, and all AHJ amendments to ensure full compliance and reduce costly revisions.",
+    highlights: ["NFPA 72 compliance", "IBC & NEC standards", "AHJ amendment review", "Revision reduction"],
     href: "/services/code-compliance",
   },
   {
     icon: FileText,
     title: "Bid Specification Writing",
     desc: "Clear, contractor-friendly specs based on CSI Master Format and AIA standards to support your project scope.",
+    highlights: ["CSI Master Format", "AIA standards", "Contractor-friendly language", "Custom scope documents"],
     href: "/services/bid-specifications",
   },
+];
+
+const certifications = [
+  { src: "/Nicet-Logo-LHF.png", alt: "NICET Certified", width: 120, height: 60 },
+  { src: "/LongHotn-NFPA-Logo.webp", alt: "NFPA Member", width: 120, height: 60 },
+  { src: "/International-Fire-Code-Logo.webp", alt: "International Fire Code", width: 120, height: 60 },
+  { src: "/IBC-Logo-LHF.png", alt: "International Building Code", width: 120, height: 60 },
 ];
 
 export default function ServicesPage() {
@@ -102,13 +116,46 @@ export default function ServicesPage() {
                 <h2 className="text-lg font-semibold text-white mb-3 group-hover:text-[var(--color-burnt-orange)] transition-colors">
                   {s.title}
                 </h2>
-                <p className="text-gray-400 text-sm leading-relaxed mb-5">
+                <p className="text-gray-400 text-sm leading-relaxed mb-4">
                   {s.desc}
                 </p>
+                <ul className="space-y-2 mb-6">
+                  {s.highlights.map((h) => (
+                    <li key={h} className="flex items-center gap-2 text-xs text-gray-500">
+                      <span className="w-1 h-1 bg-[var(--color-burnt-orange)] rounded-full flex-shrink-0" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
                 <span className="text-[var(--color-burnt-orange)] text-sm font-semibold flex items-center">
                   Learn More <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications & Standards */}
+      <section className="relative py-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">Certifications & Standards</span>
+            <h2 className="text-2xl font-bold text-[var(--color-charcoal)] mt-3">
+              Every Plan Meets the Highest Industry Standards
+            </h2>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-16">
+            {certifications.map((cert) => (
+              <div key={cert.alt} className="grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300">
+                <Image
+                  src={cert.src}
+                  alt={cert.alt}
+                  width={cert.width}
+                  height={cert.height}
+                  className="h-16 w-auto object-contain"
+                />
+              </div>
             ))}
           </div>
         </div>
