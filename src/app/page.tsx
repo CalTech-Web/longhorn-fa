@@ -375,7 +375,7 @@ export default function Home() {
                 <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full overflow-hidden">
                   <div className="flex gap-3 animate-chevron-scroll w-max">
                     {Array.from({ length: 40 }).map((_, i) => (
-                      <svg key={i} width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0 opacity-80">
+                      <svg key={i} width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0 animate-chevron-pulse" style={{ animationDelay: `${(i % 5) * 0.4}s` }}>
                         <path d="M4 2l5 5-5 5" stroke="var(--color-burnt-orange)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     ))}
