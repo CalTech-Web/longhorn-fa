@@ -85,28 +85,28 @@ export default function ContactForm() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-medium text-[var(--color-charcoal)] mb-2">First Name *</label>
-                      <input type="text" id="firstName" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition bg-white" />
+                      <input type="text" id="firstName" name="firstName" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition bg-white" />
                     </div>
                     <div>
                       <label htmlFor="lastName" className="block text-sm font-medium text-[var(--color-charcoal)] mb-2">Last Name *</label>
-                      <input type="text" id="lastName" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition bg-white" />
+                      <input type="text" id="lastName" name="lastName" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition bg-white" />
                     </div>
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-[var(--color-charcoal)] mb-2">Email *</label>
-                    <input type="email" id="email" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition bg-white" />
+                    <input type="email" id="email" name="email" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition bg-white" />
                   </div>
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-[var(--color-charcoal)] mb-2">Phone</label>
-                    <input type="tel" id="phone" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition bg-white" />
+                    <input type="tel" id="phone" name="phone" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition bg-white" />
                   </div>
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-[var(--color-charcoal)] mb-2">Company</label>
-                    <input type="text" id="company" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition bg-white" />
+                    <input type="text" id="company" name="company" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition bg-white" />
                   </div>
                   <div>
                     <label htmlFor="projectType" className="block text-sm font-medium text-[var(--color-charcoal)] mb-2">Project Type</label>
-                    <select id="projectType" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition bg-white">
+                    <select id="projectType" name="projectType" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition bg-white">
                       <option value="">Select a project type</option>
                       <option value="new-construction">New Construction</option>
                       <option value="retrofit">Retrofit</option>
@@ -117,7 +117,7 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-[var(--color-charcoal)] mb-2">Message *</label>
-                    <textarea id="message" required rows={5} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition resize-none bg-white" />
+                    <textarea id="message" name="message" required rows={5} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition resize-none bg-white" />
                   </div>
                   {error && (
                     <p className="text-red-600 text-sm">{error}</p>
