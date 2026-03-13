@@ -408,8 +408,8 @@ export default function Home() {
               { src: "/International-Fire-Code-Logo.webp", alt: "International Fire Code" },
               { src: "/IBC-Logo-LHF.png", alt: "International Building Code" },
             ].map((cert) => (
-              <div key={cert.alt} className="grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-                <Image src={cert.src} alt={cert.alt} width={120} height={60} className="h-14 w-auto object-contain" />
+              <div key={cert.alt} className="grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300">
+                <Image src={cert.src} alt={cert.alt} width={200} height={100} className="h-20 sm:h-24 w-auto object-contain" />
               </div>
             ))}
           </div>

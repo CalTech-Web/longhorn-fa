@@ -68,10 +68,10 @@ const services = [
 ];
 
 const certifications = [
-  { src: "/Nicet-Logo-LHF.png", alt: "NICET Certified", width: 120, height: 60 },
-  { src: "/LongHotn-NFPA-Logo.webp", alt: "NFPA Member", width: 120, height: 60 },
-  { src: "/International-Fire-Code-Logo.webp", alt: "International Fire Code", width: 120, height: 60 },
-  { src: "/IBC-Logo-LHF.png", alt: "International Building Code", width: 120, height: 60 },
+  { src: "/Nicet-Logo-LHF.png", alt: "NICET Certified", width: 200, height: 100 },
+  { src: "/LongHotn-NFPA-Logo.webp", alt: "NFPA Member", width: 200, height: 100 },
+  { src: "/International-Fire-Code-Logo.webp", alt: "International Fire Code", width: 200, height: 100 },
+  { src: "/IBC-Logo-LHF.png", alt: "International Building Code", width: 200, height: 100 },
 ];
 
 export default function ServicesPage() {
@@ -147,13 +147,13 @@ export default function ServicesPage() {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-16">
             {certifications.map((cert) => (
-              <div key={cert.alt} className="grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300">
+              <div key={cert.alt} className="grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300">
                 <Image
                   src={cert.src}
                   alt={cert.alt}
                   width={cert.width}
                   height={cert.height}
-                  className="h-16 w-auto object-contain"
+                  className="h-20 sm:h-24 w-auto object-contain"
                 />
               </div>
             ))}
