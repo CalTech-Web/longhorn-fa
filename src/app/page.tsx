@@ -369,8 +369,17 @@ export default function Home() {
             <p className="text-[var(--color-gray-mid)] text-lg">Send us the project, get a flat-rate quote, and receive stamped plans within five business days.</p>
           </div>
           <div className="relative">
-            {/* Connector line desktop */}
-            <div className="hidden lg:block absolute top-8 bg-gray-200 h-0.5 z-0" style={{ left: "10%", right: "10%" }} />
+            {/* Connector line + animated arrow (desktop) */}
+            <div className="hidden lg:block absolute top-8 z-0" style={{ left: "10%", right: "10%" }}>
+              <div className="relative h-0.5 bg-gray-200 w-full">
+                <div className="absolute inset-y-0 left-0 bg-[var(--color-burnt-orange)] animate-progress-line" />
+                <div className="absolute top-1/2 -translate-y-1/2 animate-arrow-travel">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="-mt-px">
+                    <path d="M5 12h14M13 5l7 7-7 7" stroke="var(--color-burnt-orange)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+              </div>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-4 relative z-10">
               {steps.map((step, i) => (
                 <div key={i} className="flex flex-col items-center text-center">
