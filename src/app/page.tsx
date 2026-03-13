@@ -18,6 +18,7 @@ import {
   Phone,
 } from "lucide-react";
 import FaqAccordion from "@/components/FaqAccordion";
+import IndustriesStrip from "@/components/IndustriesStrip";
 
 const features = [
   {
@@ -260,20 +261,7 @@ export default function Home() {
       </section>
 
       {/* Industries Strip */}
-      <section className="bg-white border-b border-gray-100 py-5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            <span className="text-xs font-semibold uppercase tracking-widest text-[var(--color-gray-mid)] shrink-0">Industries Served</span>
-            <div className="hidden sm:block w-px h-4 bg-gray-300 shrink-0" />
-            {["Office Towers", "Hospitals", "New Construction", "Retrofit Projects", "General Commercial"].map((industry) => (
-              <span key={industry} className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-charcoal)]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-burnt-orange)] shrink-0" />
-                {industry}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <IndustriesStrip />
 
       {/* Why Choose Us */}
       <section className="py-20 lg:py-28 bg-gray-50">
