@@ -21,6 +21,36 @@ export default function HeroCards() {
   }, []);
 
   return (
+    <>
+    {/* Mobile: single rotating card */}
+    <div className="flex lg:hidden justify-center mt-10">
+      <div className="w-full max-w-sm rounded-lg overflow-hidden shadow-2xl">
+        <div className="bg-[#e8e8e8] px-3 py-2 flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+          <span className="ml-3 text-[10px] text-gray-500 bg-white rounded px-2 py-0.5">
+            {cards[active].label}
+          </span>
+        </div>
+        <div className="relative aspect-[4/3]">
+          {cards.map((card, i) => (
+            <Image
+              key={i}
+              src={card.src}
+              alt={card.alt}
+              width={420}
+              height={315}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                i === active ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Desktop: stacked cards */}
     <div className="hidden lg:flex justify-center">
       <div className="relative w-[480px] h-[380px]">
         {/* Static back card (always visible, peeking out) */}
@@ -97,5 +127,6 @@ export default function HeroCards() {
         </div>
       </div>
     </div>
+    </>
   );
 }

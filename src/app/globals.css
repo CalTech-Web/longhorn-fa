@@ -37,6 +37,7 @@ body {
 
 .animate-marquee {
   animation: marquee 20s linear infinite;
+  will-change: transform;
 }
 
 .animate-blink {
@@ -108,6 +109,7 @@ body {
 
 .animate-chevron-scroll {
   animation: chevron-scroll 6s linear infinite;
+  will-change: transform;
 }
 
 .animate-chevron-pulse {
@@ -117,4 +119,20 @@ body {
 .mask-fade {
   mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 40px), transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 40px), transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-blink,
+  .animate-dash-right,
+  .animate-dash-left,
+  .animate-dash-right-slow,
+  .animate-dash-down,
+  .animate-dash-up,
+  .animate-fade-pulse,
+  .animate-fade-pulse-delayed,
+  .animate-chevron-scroll,
+  .animate-chevron-pulse {
+    animation: none !important;
+  }
 }

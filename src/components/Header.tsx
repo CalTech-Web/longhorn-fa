@@ -53,7 +53,7 @@ export default function Header() {
           </nav>
 
           {/* Mobile Toggle */}
-          <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu" aria-expanded={mobileOpen} className="lg:hidden text-white p-2">
+          <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu" aria-expanded={mobileOpen} className="lg:hidden text-white p-2.5 -mr-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center">
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
