@@ -146,14 +146,14 @@ export default function ServicesPage() {
             </h2>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-16">
-            {certifications.map((cert) => (
-              <div key={cert.alt} className="grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300">
+            {certifications.map((cert, i) => (
+              <div key={cert.alt} className="grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 animate-cert-pulse" style={{ animationDelay: `${i * 0.8}s` }}>
                 <Image
                   src={cert.src}
                   alt={cert.alt}
                   width={cert.width}
                   height={cert.height}
-                  className="h-20 sm:h-24 w-auto object-contain"
+                  className="h-28 sm:h-32 w-auto object-contain"
                 />
               </div>
             ))}

@@ -121,6 +121,15 @@ body {
   -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 40px), transparent);
 }
 
+@keyframes cert-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+.animate-cert-pulse {
+  animation: cert-pulse 3s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
   .animate-blink,
@@ -132,7 +141,8 @@ body {
   .animate-fade-pulse,
   .animate-fade-pulse-delayed,
   .animate-chevron-scroll,
-  .animate-chevron-pulse {
+  .animate-chevron-pulse,
+  .animate-cert-pulse {
     animation: none !important;
   }
 }

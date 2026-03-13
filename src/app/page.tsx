@@ -407,9 +407,9 @@ export default function Home() {
               { src: "/LongHotn-NFPA-Logo.webp", alt: "NFPA Member" },
               { src: "/International-Fire-Code-Logo.webp", alt: "International Fire Code" },
               { src: "/IBC-Logo-LHF.png", alt: "International Building Code" },
-            ].map((cert) => (
-              <div key={cert.alt} className="grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300">
-                <Image src={cert.src} alt={cert.alt} width={200} height={100} className="h-20 sm:h-24 w-auto object-contain" />
+            ].map((cert, i) => (
+              <div key={cert.alt} className="grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 animate-cert-pulse" style={{ animationDelay: `${i * 0.8}s` }}>
+                <Image src={cert.src} alt={cert.alt} width={280} height={140} className="h-28 sm:h-32 w-auto object-contain" />
               </div>
             ))}
           </div>
