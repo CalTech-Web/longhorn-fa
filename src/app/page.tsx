@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   Shield,
@@ -187,23 +188,59 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-charcoal)] via-[var(--color-charcoal-light)] to-[var(--color-charcoal)]" />
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36">
-          <div className="max-w-3xl">
-            <span className="inline-block bg-[var(--color-burnt-orange)] text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-              Stamped Plans. Flat Fees. No Delays.
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Longhorn Fire Alarm Design
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl">
-              Sealed, inspection-ready plans in five business days. Flat-rate pricing, no hourly billing, and your first qualifying design at no cost.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact" className="inline-flex items-center justify-center bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white px-8 py-4 rounded-lg text-base font-semibold transition-colors">
-                Contact Us <ChevronRight className="w-5 h-5 ml-2" />
-              </Link>
-              <a href="tel:+15125890509" className="inline-flex items-center justify-center border-2 border-gray-500 hover:border-white text-white px-8 py-4 rounded-lg text-base font-semibold transition-colors">
-                <Phone className="w-5 h-5 mr-2" /> +1.512.589.0509
-              </a>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            <div>
+              <span className="inline-block bg-[var(--color-burnt-orange)] text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+                Stamped Plans. Flat Fees. No Delays.
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                Longhorn Fire Alarm Design
+              </h1>
+              <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl">
+                Sealed, inspection-ready plans in five business days. Flat-rate pricing, no hourly billing, and your first qualifying design at no cost.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/contact" className="inline-flex items-center justify-center bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white px-8 py-4 rounded-lg text-base font-semibold transition-colors">
+                  Contact Us <ChevronRight className="w-5 h-5 ml-2" />
+                </Link>
+                <a href="tel:+15125890509" className="inline-flex items-center justify-center border-2 border-gray-500 hover:border-white text-white px-8 py-4 rounded-lg text-base font-semibold transition-colors">
+                  <Phone className="w-5 h-5 mr-2" /> +1.512.589.0509
+                </a>
+              </div>
+            </div>
+
+            {/* Stacked Image Cards */}
+            <div className="hidden lg:flex justify-center">
+              <div className="relative w-[420px] h-[340px]">
+                {[
+                  { src: "/hero-3.jpg", alt: "Construction site", rotate: "-6deg", x: "-20px", y: "10px", z: 1 },
+                  { src: "/hero-2.jpg", alt: "Blueprint design", rotate: "-3deg", x: "0px", y: "5px", z: 2 },
+                  { src: "/hero-4.jpg", alt: "Fire alarm inspection", rotate: "2deg", x: "20px", y: "-5px", z: 3 },
+                  { src: "/hero-1.jpg", alt: "Fire alarm planning", rotate: "5deg", x: "35px", y: "-15px", z: 4 },
+                ].map((card, i) => (
+                  <div
+                    key={i}
+                    className="absolute inset-0 rounded-xl overflow-hidden shadow-2xl border border-white/10"
+                    style={{
+                      transform: `rotate(${card.rotate}) translate(${card.x}, ${card.y})`,
+                      zIndex: card.z,
+                    }}
+                  >
+                    <div className="bg-[#1e1e2e] px-3 py-2 flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+                    </div>
+                    <Image
+                      src={card.src}
+                      alt={card.alt}
+                      width={420}
+                      height={300}
+                      className="w-full h-[calc(100%-28px)] object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
