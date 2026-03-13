@@ -369,14 +369,17 @@ export default function Home() {
             <p className="text-[var(--color-gray-mid)] text-lg">Send us the project, get a flat-rate quote, and receive stamped plans within five business days.</p>
           </div>
           <div className="relative">
-            {/* Connector line + animated arrow (desktop) */}
+            {/* Connector line + animated chevrons (desktop) */}
             <div className="hidden lg:block absolute top-8 z-0" style={{ left: "10%", right: "10%" }}>
               <div className="relative h-0.5 bg-gray-200 w-full">
-                <div className="absolute inset-y-0 left-0 bg-[var(--color-burnt-orange)] animate-progress-line" />
-                <div className="absolute top-1/2 -translate-y-1/2 animate-arrow-travel">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="-mt-px">
-                    <path d="M5 12h14M13 5l7 7-7 7" stroke="var(--color-burnt-orange)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full overflow-hidden">
+                  <div className="flex gap-3 animate-chevron-scroll w-max">
+                    {Array.from({ length: 40 }).map((_, i) => (
+                      <svg key={i} width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0 opacity-80">
+                        <path d="M4 2l5 5-5 5" stroke="var(--color-burnt-orange)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

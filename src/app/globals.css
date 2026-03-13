@@ -43,24 +43,13 @@ body {
   animation: blink 2s ease-in-out infinite;
 }
 
-@keyframes arrow-travel {
-  0% { left: -12px; opacity: 0; }
-  5% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { left: calc(100% - 12px); opacity: 0; }
+@keyframes chevron-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-@keyframes progress-line {
-  0% { width: 0; }
-  100% { width: 100%; }
-}
-
-.animate-arrow-travel {
-  animation: arrow-travel 4s ease-in-out infinite;
-}
-
-.animate-progress-line {
-  animation: progress-line 4s ease-in-out infinite;
+.animate-chevron-scroll {
+  animation: chevron-scroll 6s linear infinite;
 }
 
 .mask-fade {
