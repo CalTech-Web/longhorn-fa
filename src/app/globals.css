@@ -43,6 +43,59 @@ body {
   animation: blink 2s ease-in-out infinite;
 }
 
+@keyframes dash-right {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -200; }
+}
+
+@keyframes dash-left {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 200; }
+}
+
+@keyframes dash-down {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -160; }
+}
+
+@keyframes dash-up {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 160; }
+}
+
+@keyframes fade-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.animate-dash-right {
+  animation: dash-right 8s linear infinite;
+}
+
+.animate-dash-left {
+  animation: dash-left 10s linear infinite;
+}
+
+.animate-dash-right-slow {
+  animation: dash-right 14s linear infinite;
+}
+
+.animate-dash-down {
+  animation: dash-down 12s linear infinite;
+}
+
+.animate-dash-up {
+  animation: dash-up 10s linear infinite;
+}
+
+.animate-fade-pulse {
+  animation: fade-pulse 4s ease-in-out infinite;
+}
+
+.animate-fade-pulse-delayed {
+  animation: fade-pulse 4s ease-in-out 2s infinite;
+}
+
 @keyframes chevron-scroll {
   0% { transform: translateX(-50%); }
   100% { transform: translateX(0); }

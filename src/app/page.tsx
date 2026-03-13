@@ -20,6 +20,7 @@ import {
 import FaqAccordion from "@/components/FaqAccordion";
 import IndustriesStrip from "@/components/IndustriesStrip";
 import HeroCards from "@/components/HeroCards";
+import BlueprintLines from "@/components/BlueprintLines";
 
 const features = [
   {
@@ -188,7 +189,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative bg-[var(--color-charcoal)] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-charcoal)] via-[var(--color-charcoal-light)] to-[var(--color-charcoal)]" />
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
+        <BlueprintLines />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             <div>
