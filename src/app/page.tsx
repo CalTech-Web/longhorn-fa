@@ -244,15 +244,16 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 lg:py-28 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--color-burnt-orange)]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">About Longhorn</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-charcoal)] mt-3 mb-6">
                 Built on Experience. Driven by Precision.
               </h2>
-              <p className="text-[var(--color-gray-mid)] leading-relaxed mb-8">
+              <p className="text-[var(--color-gray-mid)] leading-relaxed mb-6">
                 Longhorn has been designing fire alarm systems since 2000. We work with contractors, architects, and engineers who need plans that pass the first time. NICET IV certified. Texas licensed. That is the credential stack behind every set of drawings we produce.
               </p>
               <p className="text-[var(--color-gray-mid)] leading-relaxed mb-8">
@@ -260,55 +261,64 @@ export default function Home() {
               </p>
               <div className="space-y-3">
                 {["NICET IV certified, not just licensed", "Single specialty since 2000, not a generalist shop", "Texas-stamped plans accepted statewide, design work done nationwide"].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
+                  <div key={item} className="flex items-center gap-3 bg-white rounded-lg px-4 py-3 shadow-sm border border-gray-100">
                     <CheckCircle className="w-5 h-5 text-[var(--color-burnt-orange)] flex-shrink-0" />
-                    <span className="text-[var(--color-charcoal)] font-medium">{item}</span>
+                    <span className="text-[var(--color-charcoal)] font-medium text-sm">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-[var(--color-charcoal)] rounded-2xl p-10 lg:p-14">
-              <h3 className="text-2xl font-bold text-white mb-6">What Sets Longhorn Apart</h3>
-              <div className="space-y-4">
-                {[
-                  "NICET IV Certified Designers",
-                  "Free Sales Support for Contractors",
-                  "Built for New Installs & Retrofits",
-                  "5-Day Standard Turnaround, Flat-Rate Pricing",
-                  "Plans Built to NFPA 72, IBC, and NEC",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-[var(--color-burnt-orange)] flex-shrink-0" />
-                    <span className="text-gray-300 text-sm">{item}</span>
-                  </div>
-                ))}
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-br from-[var(--color-burnt-orange)] to-[var(--color-burnt-orange-dark)] rounded-2xl blur opacity-20" />
+              <div className="relative bg-[var(--color-charcoal)] rounded-2xl p-10 lg:p-14">
+                <div className="absolute top-0 left-10 right-10 h-1 bg-gradient-to-r from-transparent via-[var(--color-burnt-orange)] to-transparent rounded-b" />
+                <h3 className="text-2xl font-bold text-white mb-8">What Sets Longhorn Apart</h3>
+                <div className="space-y-4">
+                  {[
+                    "NICET IV Certified Designers",
+                    "Free Sales Support for Contractors",
+                    "Built for New Installs & Retrofits",
+                    "5-Day Standard Turnaround, Flat-Rate Pricing",
+                    "Plans Built to NFPA 72, IBC, and NEC",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-3 bg-white/5 rounded-lg px-4 py-3">
+                      <CheckCircle className="w-5 h-5 text-[var(--color-burnt-orange)] flex-shrink-0" />
+                      <span className="text-gray-300 text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link href="/about" className="inline-flex items-center mt-8 bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white px-6 py-3 rounded-lg font-semibold text-sm transition-colors">
+                  Learn More About Us <ChevronRight className="w-4 h-4 ml-1" />
+                </Link>
               </div>
-              <Link href="/about" className="inline-flex items-center mt-8 text-[var(--color-burnt-orange)] font-semibold text-sm hover:underline">
-                Learn More About Us <ChevronRight className="w-4 h-4 ml-1" />
-              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* Services */}
-      <section className="py-20 lg:py-28 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 lg:py-28 bg-[var(--color-charcoal)] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-charcoal-light)] to-[var(--color-charcoal)]" />
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">Our Services</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-charcoal)] mt-3 mb-4">Fire Alarm Design Services</h2>
-            <p className="text-[var(--color-gray-mid)] text-lg">From preliminary bid layouts to stamped permit documents, every phase covered.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">Fire Alarm Design Services</h2>
+            <p className="text-gray-400 text-lg">From preliminary bid layouts to stamped permit documents, every phase covered.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s, i) => (
-              <Link key={i} href={s.href} className="group bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all border border-gray-100 hover:border-[var(--color-burnt-orange)]">
-                <div className="w-12 h-12 bg-[var(--color-burnt-orange)] rounded-lg flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <s.icon className="w-6 h-6 text-white" />
+              <Link key={i} href={s.href} className="group relative bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:border-[var(--color-burnt-orange)]/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(216,77,26,0.15)]">
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-12 h-12 bg-[var(--color-burnt-orange)] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-[var(--color-burnt-orange)]/20">
+                    <s.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-[var(--color-burnt-orange)]/30 text-5xl font-bold leading-none">0{i + 1}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-[var(--color-charcoal)] mb-3 group-hover:text-[var(--color-burnt-orange)] transition-colors">{s.title}</h3>
-                <p className="text-[var(--color-gray-mid)] text-sm leading-relaxed mb-4">{s.desc}</p>
-                <span className="text-[var(--color-burnt-orange)] text-sm font-semibold flex items-center">
-                  Learn More <ChevronRight className="w-4 h-4 ml-1" />
+                <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-[var(--color-burnt-orange)] transition-colors">{s.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed mb-5">{s.desc}</p>
+                <span className="text-[var(--color-burnt-orange)] text-sm font-semibold flex items-center group-hover:gap-2 transition-all">
+                  Learn More <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
             ))}
@@ -317,7 +327,7 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">Our Process</span>
@@ -360,23 +370,26 @@ export default function Home() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 lg:py-28 bg-[var(--color-charcoal)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 lg:py-28 bg-[var(--color-burnt-orange)] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-burnt-orange)] via-[var(--color-burnt-orange-dark)] to-[var(--color-burnt-orange)]" />
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">Track Record</span>
+            <span className="text-white/70 text-sm font-semibold uppercase tracking-wider">Track Record</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3">Twenty-Five Years. One Specialty.</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((s, i) => (
-              <div key={i} className="text-center">
-                <div className="text-5xl lg:text-6xl font-bold text-[var(--color-burnt-orange)] mb-3">{s.value}</div>
+              <div key={i} className="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-10 border border-white/20">
+                <div className="text-5xl lg:text-6xl font-bold text-white mb-3">{s.value}</div>
                 <div className="text-white font-semibold text-lg mb-2">{s.label}</div>
-                <p className="text-gray-400 text-sm">{s.sub}</p>
+                <div className="w-12 h-0.5 bg-white/30 mx-auto mb-3" />
+                <p className="text-white/70 text-sm">{s.sub}</p>
               </div>
             ))}
           </div>
           <div className="text-center mt-14">
-            <Link href="/pricing" className="inline-flex items-center bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white px-8 py-4 rounded-lg text-base font-semibold transition-colors">
+            <Link href="/pricing" className="inline-flex items-center bg-white text-[var(--color-burnt-orange)] px-8 py-4 rounded-lg text-base font-semibold hover:bg-gray-100 transition-colors shadow-lg">
               Get Pricing <ChevronRight className="w-5 h-5 ml-2" />
             </Link>
           </div>
@@ -384,67 +397,71 @@ export default function Home() {
       </section>
 
       {/* Pricing Preview */}
-      <section className="py-20 lg:py-28 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 lg:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[var(--color-burnt-orange)]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">Pricing</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-charcoal)] mt-3 mb-4">Flat-Rate Plans. No Surprises.</h2>
             <p className="text-[var(--color-gray-mid)] text-lg">Flat rates starting at $500. No hourly billing, no ambiguous invoices.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white rounded-2xl p-8 border border-gray-200 flex flex-col">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12">
+            <div className="group bg-white rounded-2xl p-8 border border-gray-200 flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <h3 className="text-lg font-bold text-[var(--color-charcoal)] mb-2">Small Project</h3>
               <p className="text-sm text-[var(--color-gray-mid)] mb-6">For smaller commercial spaces with limited device counts.</p>
               <div className="mb-6">
                 <span className="text-4xl font-bold text-[var(--color-charcoal)]">$500</span>
                 <span className="text-sm text-[var(--color-text-light)] ml-1">/ project</span>
               </div>
-              <ul className="space-y-2 mb-8 flex-1">
+              <ul className="space-y-3 mb-8 flex-1">
                 {["Up to 50 devices", "Permit-ready PDF plans", "NICET IV certified review", "5 business day turnaround"].map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm text-[var(--color-gray-mid)]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-burnt-orange)] shrink-0" />{f}
+                  <li key={f} className="flex items-center gap-2.5 text-sm text-[var(--color-gray-mid)]">
+                    <CheckCircle className="w-4 h-4 text-[var(--color-burnt-orange)] shrink-0" />{f}
                   </li>
                 ))}
               </ul>
-              <Link href="/pricing" className="block text-center py-3 rounded-lg font-semibold text-sm border-2 border-[var(--color-charcoal)] text-[var(--color-charcoal)] hover:bg-[var(--color-charcoal)] hover:text-white transition-colors">
+              <Link href="/pricing" className="block text-center py-3.5 rounded-lg font-semibold text-sm border-2 border-[var(--color-charcoal)] text-[var(--color-charcoal)] hover:bg-[var(--color-charcoal)] hover:text-white transition-colors">
                 View Details
               </Link>
             </div>
-            <div className="bg-[var(--color-charcoal)] rounded-2xl p-8 border-2 border-[var(--color-burnt-orange)] flex flex-col relative md:scale-105 shadow-lg">
-              <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--color-burnt-orange)] text-white text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full whitespace-nowrap">
-                Most Popular
-              </span>
-              <h3 className="text-lg font-bold text-white mb-2">Standard Plan</h3>
-              <p className="text-sm text-gray-300 mb-6">Our most popular option for mid-size commercial projects.</p>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-[var(--color-burnt-orange)]">$750</span>
-                <span className="text-sm text-gray-400 ml-1">/ project</span>
+            <div className="relative md:-mt-4 md:mb-4">
+              <div className="absolute -inset-0.5 bg-gradient-to-b from-[var(--color-burnt-orange)] to-[var(--color-burnt-orange-dark)] rounded-2xl" />
+              <div className="relative bg-[var(--color-charcoal)] rounded-2xl p-8 flex flex-col h-full">
+                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--color-burnt-orange)] text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full whitespace-nowrap shadow-lg">
+                  Most Popular
+                </span>
+                <h3 className="text-lg font-bold text-white mb-2">Standard Plan</h3>
+                <p className="text-sm text-gray-300 mb-6">Our most popular option for mid-size commercial projects.</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold text-[var(--color-burnt-orange)]">$750</span>
+                  <span className="text-sm text-gray-400 ml-1">/ project</span>
+                </div>
+                <ul className="space-y-3 mb-8 flex-1">
+                  {["Up to 350 devices", "Full fire alarm layout", "Device placement & risers", "Wiring paths & battery calc", "NICET IV certified & stamped", "Permitting assistance"].map((f) => (
+                    <li key={f} className="flex items-center gap-2.5 text-sm text-gray-300">
+                      <CheckCircle className="w-4 h-4 text-[var(--color-burnt-orange)] shrink-0" />{f}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/contact" className="block text-center py-3.5 rounded-lg font-semibold text-sm bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white transition-colors shadow-lg shadow-[var(--color-burnt-orange)]/30">
+                  Get Started
+                </Link>
               </div>
-              <ul className="space-y-2 mb-8 flex-1">
-                {["Up to 350 devices", "Full fire alarm layout", "Device placement & risers", "Wiring paths & battery calc", "NICET IV certified & stamped", "Permitting assistance"].map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm text-gray-300">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-burnt-orange)] shrink-0" />{f}
-                  </li>
-                ))}
-              </ul>
-              <Link href="/contact" className="block text-center py-3 rounded-lg font-semibold text-sm bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white transition-colors">
-                Get Started
-              </Link>
             </div>
-            <div className="bg-white rounded-2xl p-8 border border-gray-200 flex flex-col">
+            <div className="group bg-white rounded-2xl p-8 border border-gray-200 flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <h3 className="text-lg font-bold text-[var(--color-charcoal)] mb-2">Large / Custom</h3>
               <p className="text-sm text-[var(--color-gray-mid)] mb-6">For complex projects with 350+ devices or special requirements.</p>
               <div className="mb-6">
                 <span className="text-4xl font-bold text-[var(--color-charcoal)]">Custom</span>
               </div>
-              <ul className="space-y-2 mb-8 flex-1">
+              <ul className="space-y-3 mb-8 flex-1">
                 {["350+ devices", "Custom scope & timeline", "Full engineering support", "Expedited options available"].map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm text-[var(--color-gray-mid)]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-burnt-orange)] shrink-0" />{f}
+                  <li key={f} className="flex items-center gap-2.5 text-sm text-[var(--color-gray-mid)]">
+                    <CheckCircle className="w-4 h-4 text-[var(--color-burnt-orange)] shrink-0" />{f}
                   </li>
                 ))}
               </ul>
-              <Link href="/contact" className="block text-center py-3 rounded-lg font-semibold text-sm border-2 border-[var(--color-charcoal)] text-[var(--color-charcoal)] hover:bg-[var(--color-charcoal)] hover:text-white transition-colors">
+              <Link href="/contact" className="block text-center py-3.5 rounded-lg font-semibold text-sm border-2 border-[var(--color-charcoal)] text-[var(--color-charcoal)] hover:bg-[var(--color-charcoal)] hover:text-white transition-colors">
                 Request a Quote
               </Link>
             </div>
@@ -458,29 +475,37 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 lg:py-28 bg-[var(--color-charcoal)] overflow-hidden">
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[var(--color-burnt-orange)]/10 rounded-full blur-3xl -translate-y-1/2" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">FAQ</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-charcoal)] mt-3">Quick Answers to Common Questions</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3">Quick Answers to Common Questions</h2>
           </div>
           <FaqAccordion />
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 lg:py-24 bg-[var(--color-burnt-orange)]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Your First Plan Is on Us</h2>
-          <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
+      <section className="relative py-20 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-charcoal)] via-[var(--color-charcoal-light)] to-[var(--color-charcoal)]" />
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--color-burnt-orange)]/10 rounded-full blur-3xl" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-block bg-[var(--color-burnt-orange)]/20 border border-[var(--color-burnt-orange)]/30 rounded-full px-5 py-1.5 mb-6">
+            <span className="text-[var(--color-burnt-orange)] text-sm font-semibold">Limited Offer</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">Your First Plan Is on Us</h2>
+          <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
             Submit a project. We design it, stamp it, and send permit-ready PDFs in five business days. No cost for qualifying clients. If the work holds up, the next conversation is easy.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/pricing" className="inline-flex items-center justify-center bg-white text-[var(--color-burnt-orange)] px-8 py-4 rounded-lg text-base font-semibold hover:bg-gray-100 transition-colors">
-              View Pricing
+            <Link href="/contact" className="inline-flex items-center justify-center bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white px-8 py-4 rounded-lg text-base font-semibold transition-colors shadow-lg shadow-[var(--color-burnt-orange)]/30">
+              Claim Your Free Plan <ChevronRight className="w-5 h-5 ml-2" />
             </Link>
-            <Link href="/contact" className="inline-flex items-center justify-center border-2 border-white text-white px-8 py-4 rounded-lg text-base font-semibold hover:bg-white/10 transition-colors">
-              Contact Us
+            <Link href="/pricing" className="inline-flex items-center justify-center border-2 border-gray-500 hover:border-white text-white px-8 py-4 rounded-lg text-base font-semibold transition-colors">
+              View Pricing
             </Link>
           </div>
         </div>

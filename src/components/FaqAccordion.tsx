@@ -32,10 +32,10 @@ export default function FaqAccordion({ items }: { items?: { q: string; a: string
       {faqs.map((f, i) => (
         <details
           key={i}
-          className="group border border-gray-200 rounded-xl overflow-hidden open:border-[var(--color-burnt-orange)]"
+          className="group bg-white/5 border border-white/10 rounded-xl overflow-hidden open:border-[var(--color-burnt-orange)]/50 open:bg-white/10 transition-colors"
         >
           <summary className="flex items-center justify-between px-6 py-5 cursor-pointer list-none gap-4">
-            <span className="font-semibold text-sm sm:text-base text-[var(--color-charcoal)] group-open:text-[var(--color-burnt-orange)]">
+            <span className="font-semibold text-sm sm:text-base text-white group-open:text-[var(--color-burnt-orange)]">
               {f.q}
             </span>
             <svg
@@ -51,7 +51,7 @@ export default function FaqAccordion({ items }: { items?: { q: string; a: string
               <polyline points="6 9 12 15 18 9" />
             </svg>
           </summary>
-          <p className="px-6 pb-5 text-[var(--color-gray-mid)] text-sm leading-relaxed">
+          <p className="px-6 pb-5 text-gray-400 text-sm leading-relaxed">
             {f.a}
           </p>
         </details>
