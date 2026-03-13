@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   description:
     "Sealed, inspection-ready fire alarm plans in five business days. NICET IV certified, Texas licensed. Flat-rate pricing, no hourly billing. Serving contractors nationwide since 2000.",
   metadataBase: new URL("https://longhornfirealarmdesign.com"),
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -37,6 +41,48 @@ export const metadata: Metadata = {
   },
 };
 
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Longhorn Fire Alarm Design",
+  description:
+    "NICET IV certified fire alarm system design. Sealed, inspection-ready plans in five business days. Flat-rate pricing, serving contractors nationwide since 2000.",
+  url: "https://longhornfirealarmdesign.com",
+  logo: "https://longhornfirealarmdesign.com/logo.webp",
+  image: "https://longhornfirealarmdesign.com/logo.webp",
+  telephone: "+15125890509",
+  email: "dhasselberg@longhornfirealarmdesign.com",
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: "TX",
+    addressCountry: "US",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "United States",
+  },
+  priceRange: "$$",
+  foundingDate: "2000",
+  knowsAbout: [
+    "Fire Alarm System Design",
+    "NFPA 72",
+    "Fire Alarm Permitting",
+    "NICET Certification",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Fire Alarm Design Services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Fire Alarm System Design" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Permitting Assistance" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sales Support" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Engineering & Consulting" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Code Compliance" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bid Specification Writing" } },
+    ],
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -44,6 +90,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={rajdhani.variable}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+      </head>
       <body>
         <Header />
         <main>{children}</main>
