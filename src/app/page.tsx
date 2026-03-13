@@ -264,20 +264,23 @@ export default function Home() {
       <IndustriesStrip />
 
       {/* Why Choose Us */}
-      <section className="py-20 lg:py-28 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 lg:py-28 bg-[var(--color-charcoal)] overflow-hidden">
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-charcoal)] mb-4">Why Choose Longhorn</h2>
-            <p className="text-[var(--color-gray-mid)] text-lg">25 years of fire alarm design. 2,000+ projects completed. A flat-rate model that removes billing surprises.</p>
+            <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">Why Choose Us</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">Why Choose Longhorn</h2>
+            <p className="text-gray-400 text-lg">25 years of fire alarm design. 2,000+ projects completed. A flat-rate model that removes billing surprises.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f, i) => (
-              <div key={i} className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-                <div className="w-12 h-12 bg-[#D84D1A1A] rounded-lg flex items-center justify-center mb-5">
+              <div key={i} className="group relative bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:border-[var(--color-burnt-orange)]/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(216,77,26,0.15)]">
+                <div className="absolute top-0 left-8 w-12 h-1 bg-[var(--color-burnt-orange)] rounded-b" />
+                <div className="w-12 h-12 bg-[var(--color-burnt-orange)]/15 rounded-lg flex items-center justify-center mb-5 group-hover:bg-[var(--color-burnt-orange)]/25 transition-colors">
                   <f.icon className="w-6 h-6 text-[var(--color-burnt-orange)]" />
                 </div>
-                <h3 className="text-lg font-semibold text-[var(--color-charcoal)] mb-3">{f.title}</h3>
-                <p className="text-[var(--color-gray-mid)] text-sm leading-relaxed">{f.desc}</p>
+                <h3 className="text-lg font-semibold text-white mb-3">{f.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
