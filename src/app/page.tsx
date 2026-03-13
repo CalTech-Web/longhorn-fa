@@ -183,7 +183,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* Hero */}
-      <section className="relative bg-[var(--color-charcoal)] overflow-hidden pb-12 lg:pb-16">
+      <section className="relative bg-[var(--color-charcoal)] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-charcoal)] via-[var(--color-charcoal-light)] to-[var(--color-charcoal)]" />
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36">
@@ -206,12 +206,6 @@ export default function Home() {
               </a>
             </div>
           </div>
-        </div>
-        {/* Diagonal Shape Divider */}
-        <div className="absolute bottom-0 left-0 right-0 overflow-hidden z-10">
-          <svg viewBox="0 0 1440 64" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="block w-full h-12 lg:h-16">
-            <path d="M0 64 L1440 0 L1440 64 Z" fill="white" />
-          </svg>
         </div>
       </section>
 
