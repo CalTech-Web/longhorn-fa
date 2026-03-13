@@ -23,6 +23,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Longhorn Fire Alarm Design",
+    images: [
+      {
+        url: "https://longhornfirealarmdesign.com/logo.webp",
+        width: 954,
+        height: 701,
+        alt: "Longhorn Fire Alarm Design",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 

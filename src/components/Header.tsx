@@ -28,11 +28,11 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-8">
             <Link href="/" className="text-white hover:text-[var(--color-burnt-orange)] transition-colors text-sm font-medium">Home</Link>
             <Link href="/about" className="text-white hover:text-[var(--color-burnt-orange)] transition-colors text-sm font-medium">About</Link>
             <div className="relative group">
-              <button className="text-white hover:text-[var(--color-burnt-orange)] transition-colors text-sm font-medium flex items-center gap-1">
+              <button aria-haspopup="true" aria-expanded={servicesOpen} className="text-white hover:text-[var(--color-burnt-orange)] transition-colors text-sm font-medium flex items-center gap-1">
                 Services <ChevronDown className="w-4 h-4" />
               </button>
               <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
@@ -53,7 +53,7 @@ export default function Header() {
           </nav>
 
           {/* Mobile Toggle */}
-          <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden text-white p-2">
+          <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu" aria-expanded={mobileOpen} className="lg:hidden text-white p-2">
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -65,7 +65,7 @@ export default function Header() {
           <div className="px-4 py-4 space-y-1">
             <Link href="/" onClick={() => setMobileOpen(false)} className="block py-2.5 text-white hover:text-[var(--color-burnt-orange)] text-sm">Home</Link>
             <Link href="/about" onClick={() => setMobileOpen(false)} className="block py-2.5 text-white hover:text-[var(--color-burnt-orange)] text-sm">About</Link>
-            <button onClick={() => setServicesOpen(!servicesOpen)} className="flex items-center justify-between w-full py-2.5 text-white hover:text-[var(--color-burnt-orange)] text-sm">
+            <button onClick={() => setServicesOpen(!servicesOpen)} aria-haspopup="true" aria-expanded={servicesOpen} className="flex items-center justify-between w-full py-2.5 text-white hover:text-[var(--color-burnt-orange)] text-sm">
               Services <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
             </button>
             {servicesOpen && (
