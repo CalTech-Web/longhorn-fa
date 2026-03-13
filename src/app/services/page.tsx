@@ -7,8 +7,10 @@ import {
   BookCheck,
   FileText,
   ChevronRight,
+  Phone,
 } from "lucide-react";
 import type { Metadata } from "next";
+import HeroBackground from "@/components/HeroBackground";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -62,8 +64,9 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[var(--color-charcoal)] py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-[var(--color-charcoal)] py-20 lg:py-28 overflow-hidden">
+        <HeroBackground variant="compass" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="text-[var(--color-burnt-orange)] text-sm font-semibold uppercase tracking-wider">
               Our Services
@@ -79,26 +82,31 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((s) => (
+      <section className="relative py-20 lg:py-28 bg-[var(--color-charcoal)] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-charcoal-light)] to-[var(--color-charcoal)]" />
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((s, i) => (
               <Link
                 key={s.href}
                 href={s.href}
-                className="group bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all border border-gray-100 hover:border-[var(--color-burnt-orange)]"
+                className="group relative bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:border-[var(--color-burnt-orange)]/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(216,77,26,0.15)]"
               >
-                <div className="w-12 h-12 bg-[var(--color-burnt-orange)] rounded-lg flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <s.icon className="w-6 h-6 text-white" />
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-12 h-12 bg-[var(--color-burnt-orange)] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-[var(--color-burnt-orange)]/20">
+                    <s.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-[var(--color-burnt-orange)]/30 text-5xl font-bold leading-none">0{i + 1}</span>
                 </div>
-                <h2 className="text-lg font-semibold text-[var(--color-charcoal)] mb-3 group-hover:text-[var(--color-burnt-orange)] transition-colors">
+                <h2 className="text-lg font-semibold text-white mb-3 group-hover:text-[var(--color-burnt-orange)] transition-colors">
                   {s.title}
                 </h2>
-                <p className="text-[var(--color-gray-mid)] text-sm leading-relaxed mb-4">
+                <p className="text-gray-400 text-sm leading-relaxed mb-5">
                   {s.desc}
                 </p>
                 <span className="text-[var(--color-burnt-orange)] text-sm font-semibold flex items-center">
-                  Learn More <ChevronRight className="w-4 h-4 ml-1" />
+                  Learn More <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
             ))}
@@ -107,20 +115,28 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[var(--color-burnt-orange)]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
+      <section className="relative py-20 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-charcoal)] via-[var(--color-charcoal-light)] to-[var(--color-charcoal)]" />
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--color-burnt-orange)]/10 rounded-full blur-3xl" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-block bg-[var(--color-burnt-orange)]/20 border border-[var(--color-burnt-orange)]/30 rounded-full px-5 py-1.5 mb-6">
+            <span className="text-[var(--color-burnt-orange)] text-sm font-semibold">Need Help Choosing?</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
             Not Sure Which Service You Need?
           </h2>
-          <p className="text-white/90 text-lg mb-8">
+          <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
             Send us your project details and we will recommend the right scope.
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center bg-white text-[var(--color-burnt-orange)] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-          >
-            Contact Us <ChevronRight className="w-5 h-5 ml-2" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact" className="inline-flex items-center justify-center bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white px-8 py-4 rounded-lg font-semibold transition-colors shadow-lg shadow-[var(--color-burnt-orange)]/30">
+              Contact Us <ChevronRight className="w-5 h-5 ml-2" />
+            </Link>
+            <a href="tel:+15125890509" className="inline-flex items-center justify-center border-2 border-gray-500 hover:border-white text-white px-8 py-4 rounded-lg font-semibold transition-colors">
+              <Phone className="w-5 h-5 mr-2" /> +1.512.589.0509
+            </a>
+          </div>
         </div>
       </section>
     </>
