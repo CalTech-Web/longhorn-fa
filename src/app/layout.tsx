@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   description:
     "Sealed, inspection-ready fire alarm plans in five business days. NICET IV certified, Texas licensed. Flat-rate pricing, no hourly billing. Serving contractors nationwide since 2000.",
   metadataBase: new URL("https://longhornfirealarmdesign.com"),
+  verification: { google: "AYFjBQMAmYQE_Xjk9_DIJPFMoNkTYTnnHObfMQFAQtI" },
   icons: {
     apple: "/apple-touch-icon.png",
   },
