@@ -1,8 +1,24 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, useCallback, type FormEvent } from "react";
 import { Phone, Mail, Clock, MapPin } from "lucide-react";
 import HeroBackground from "@/components/HeroBackground";
+
+const RECAPTCHA_SITE_KEY = "6Lcg0lErAAAAAKUjCgcFTrp2nilw3Lk89Qykn1gP";
+
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (cb: () => void) => void;
+      execute: (key: string, opts: { action: string }) => Promise<string>;
+    };
+  }
+}
+
+interface MathChallenge {
+  token: string;
+  question: string;
+}
 
 const contactInfo = [
   { icon: Phone, label: "Phone", value: "+1.512.589.0509", href: "tel:+15125890509" },
@@ -13,9 +29,42 @@ const contactInfo = [
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
-
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [recaptchaReady, setRecaptchaReady] = useState(false);
+  const [mathChallenge, setMathChallenge] = useState<MathChallenge | null>(null);
+  const [mathAnswer, setMathAnswer] = useState("");
+
+  const fetchChallenge = useCallback(async () => {
+    try {
+      const res = await fetch("https://forms.caltechweb.com/api/challenge");
+      if (res.ok) {
+        const data = await res.json();
+        setMathChallenge(data);
+        setMathAnswer("");
+      }
+    } catch {
+      // Challenge fetch failed silently
+    }
+  }, []);
+
+  useEffect(() => {
+    // Load reCAPTCHA v3
+    const script = document.createElement("script");
+    script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    script.onload = () => {
+      window.grecaptcha.ready(() => setRecaptchaReady(true));
+    };
+    document.head.appendChild(script);
+
+    // Fetch math challenge
+    fetchChallenge();
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, [fetchChallenge]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -23,6 +72,25 @@ export default function ContactForm() {
     setError("");
 
     const form = e.currentTarget;
+
+    // Check honeypot
+    const honeypotValue = (form.elements.namedItem("honeypot") as HTMLInputElement)?.value;
+    if (honeypotValue) {
+      setSubmitting(false);
+      return;
+    }
+
+    // Get reCAPTCHA token with 5s timeout
+    let recaptchaToken: string | null = null;
+    try {
+      recaptchaToken = await Promise.race([
+        window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: "contact" }),
+        new Promise<null>((resolve) => setTimeout(() => resolve(null), 5000)),
+      ]);
+    } catch {
+      // reCAPTCHA failed silently
+    }
+
     const data = {
       site: "longhornfirealarmdesign.com",
       name: `${(form.elements.namedItem("firstName") as HTMLInputElement).value} ${(form.elements.namedItem("lastName") as HTMLInputElement).value}`,
@@ -34,6 +102,11 @@ export default function ContactForm() {
         (form.elements.namedItem("message") as HTMLTextAreaElement).value,
       ].filter(Boolean).join("\n"),
       source: "contact-page" as const,
+      recaptchaToken,
+      honeypot: honeypotValue || "",
+      mathToken: mathChallenge?.token || "",
+      mathAnswer,
+          turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "",
     };
 
     try {
@@ -46,6 +119,7 @@ export default function ContactForm() {
       setSubmitted(true);
     } catch {
       setError("Something went wrong. Please try again or call us directly.");
+      fetchChallenge();
     } finally {
       setSubmitting(false);
     }
@@ -119,12 +193,47 @@ export default function ContactForm() {
                     <label htmlFor="message" className="block text-sm font-medium text-[var(--color-charcoal)] mb-2">Message *</label>
                     <textarea id="message" name="message" required rows={5} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition resize-none bg-white" />
                   </div>
+
+                  {/* Honeypot */}
+                  <div className="hidden" aria-hidden="true">
+                    <input type="text" name="honeypot" tabIndex={-1} autoComplete="off" />
+                  </div>
+
+                  {/* Math CAPTCHA */}
+                  {mathChallenge && (
+                    <div>
+                      <label htmlFor="mathAnswer" className="block text-sm font-medium text-[var(--color-charcoal)] mb-2">
+                        {mathChallenge.question} *
+                      </label>
+                      <input
+                        type="text"
+                        id="mathAnswer"
+                        required
+                        value={mathAnswer}
+                        onChange={(e) => setMathAnswer(e.target.value)}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition bg-white"
+                        placeholder="Your answer"
+                        autoComplete="off"
+                      />
+                    </div>
+                  )}
+
                   {error && (
                     <p className="text-red-600 text-sm">{error}</p>
                   )}
-                  <button type="submit" disabled={submitting} className="w-full sm:w-auto bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white px-10 py-4 rounded-lg font-semibold transition-colors disabled:opacity-60 shadow-lg shadow-[var(--color-burnt-orange)]/30">
+                  <div className="cf-turnstile" data-sitekey="0x4AAAAAACyyvaAYDtMSgOUI"></div>
+
+                  <button type="submit" disabled={submitting || !recaptchaReady} className="w-full sm:w-auto bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white px-10 py-4 rounded-lg font-semibold transition-colors disabled:opacity-60 shadow-lg shadow-[var(--color-burnt-orange)]/30">
                     {submitting ? "Sending..." : "Send Message"}
                   </button>
+
+                  {/* reCAPTCHA attribution */}
+                  <p className="text-xs text-gray-400">
+                    Protected by reCAPTCHA.{" "}
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">Privacy</a>
+                    {" & "}
+                    <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">Terms</a>
+                  </p>
                 </form>
               )}
             </div>
