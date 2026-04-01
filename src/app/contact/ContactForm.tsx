@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useRef, useEffect, type FormEvent } from "react";
 import { Phone, Mail, Clock, MapPin } from "lucide-react";
 import HeroBackground from "@/components/HeroBackground";
 
@@ -15,6 +15,21 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if ((window as any).turnstile && turnstileRef.current && !turnstileRef.current.hasChildNodes()) {
+        (window as any).turnstile.render(turnstileRef.current, {
+          sitekey: "0x4AAAAAACyyvaAYDtMSgOUI",
+          callback: (token: string) => setTurnstileToken(token),
+        });
+        clearInterval(interval);
+      }
+    }, 100);
+    return () => clearInterval(interval);
+  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -34,7 +49,7 @@ export default function ContactForm() {
         (form.elements.namedItem("message") as HTMLTextAreaElement).value,
       ].filter(Boolean).join("\n"),
       source: "contact-page" as const,
-      turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "",
+      turnstileToken,
     };
 
     try {
@@ -124,7 +139,7 @@ export default function ContactForm() {
                   {error && (
                     <p className="text-red-600 text-sm">{error}</p>
                   )}
-                  <div className="cf-turnstile" data-sitekey="0x4AAAAAACyyvaAYDtMSgOUI"></div>
+                  <div ref={turnstileRef} className="mt-4"></div>
 
                   <button type="submit" disabled={submitting} className="w-full sm:w-auto bg-[var(--color-burnt-orange)] hover:bg-[var(--color-burnt-orange-dark)] text-white px-10 py-4 rounded-lg font-semibold transition-colors disabled:opacity-60 shadow-lg shadow-[var(--color-burnt-orange)]/30">
                     {submitting ? "Sending..." : "Send Message"}
