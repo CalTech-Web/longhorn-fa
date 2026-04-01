@@ -23,13 +23,6 @@ export default function ContactForm() {
 
     const form = e.currentTarget;
 
-    // Check honeypot
-    const honeypotValue = (form.elements.namedItem("honeypot") as HTMLInputElement)?.value;
-    if (honeypotValue) {
-      setSubmitting(false);
-      return;
-    }
-
     const data = {
       site: "longhornfirealarmdesign.com",
       name: `${(form.elements.namedItem("firstName") as HTMLInputElement).value} ${(form.elements.namedItem("lastName") as HTMLInputElement).value}`,
@@ -41,7 +34,6 @@ export default function ContactForm() {
         (form.elements.namedItem("message") as HTMLTextAreaElement).value,
       ].filter(Boolean).join("\n"),
       source: "contact-page" as const,
-      honeypot: honeypotValue || "",
       turnstileToken: document.querySelector<HTMLInputElement>("[name=cf-turnstile-response]")?.value || "",
     };
 
@@ -127,11 +119,6 @@ export default function ContactForm() {
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-[var(--color-charcoal)] mb-2">Message *</label>
                     <textarea id="message" name="message" required rows={5} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-burnt-orange)] focus:border-transparent outline-none transition resize-none bg-white" />
-                  </div>
-
-                  {/* Honeypot */}
-                  <div className="hidden" aria-hidden="true">
-                    <input type="text" name="honeypot" tabIndex={-1} autoComplete="off" />
                   </div>
 
                   {error && (
